@@ -48,6 +48,8 @@ gem "bootsnap", require: false
 gem 'sorcery'
 gem "view_component"
 gem "slim-rails"
+gem 'simple_form'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

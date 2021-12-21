@@ -1,5 +1,5 @@
 h1 New paste
-
-== render 'form'
+div
+    = render Paste::FormComponent.new paste: @paste
 
 = link_to 'Back', pastes_path

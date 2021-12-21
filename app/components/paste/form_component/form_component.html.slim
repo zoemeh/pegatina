@@ -1,0 +1,7 @@
+= simple_form_for @paste do |f|
+  .flex.flex-col.gap-2
+    .flex.flex-col.flex-auto
+      = f.text_area :body, class: "flex-auto h-1/2"
+      = f.error :body, class: "flex-auto"
+    .flex.flex-auto
+      = f.button :submit, class: "border-2 px-3 py-2 bg-gray-700 text-white flex-auto"

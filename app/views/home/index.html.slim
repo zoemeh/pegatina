@@ -9,14 +9,5 @@
 
   div
     h1.text-center.text-lg.mb-2 Pegatina
-    = form_for @paste, html: {class: "flex flex-col w-full h-full"} do |f|
-      - if @paste.errors.any?
-        #error_explanation
-          h2 = "#{pluralize(@paste.errors.count, 'error')} prohibited this paste from being saved:"
-          ul
-            - @paste.errors.full_messages.each do |message|
-              li = message
-
-      = f.text_area :body, class: "h-1/2"
-      .flex = f.submit class: "flex-auto border-2 px-3 py-2 bg-gray-700 text-white"
+    = render Paste::FormComponent.new
 
