@@ -1,0 +1,21 @@
+h1 Listing pastes
+
+table
+  thead
+    tr
+      th Body
+      th
+      th
+      th
+
+  tbody
+    - @pastes.each do |paste|
+      tr
+        td = paste.body
+        td = link_to 'Show', paste
+        td = link_to 'Edit', edit_paste_path(paste)
+        td = link_to 'Destroy', paste, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Paste', new_paste_path

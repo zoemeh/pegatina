@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Body:
+  = @paste.body
+
+=> link_to 'Edit', edit_paste_path(@paste)
+'|
+=< link_to 'Back', pastes_path
