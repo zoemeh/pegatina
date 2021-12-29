@@ -14,7 +14,7 @@ table
         td = paste.body
         td = link_to 'Show', paste
         td = link_to 'Edit', edit_paste_path(paste)
-        td = link_to 'Destroy', paste, data: { confirm: 'Are you sure?' }, method: :delete
+        td = button_to 'Destroy', paste, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
