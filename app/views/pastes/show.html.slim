@@ -1,7 +1,10 @@
 p#notice = notice
-
-code.whitespace-pre = @paste.body
-
-=> link_to 'Edit', edit_paste_path(@paste)
-'|
-=< link_to 'Back', pastes_path
+div.mb-2.flex.gap-2.border-b-2
+  p.flex-initial = "Created at: #{@paste.created_at}"
+  p.flex-initial
+    - unless @paste.expiration_date.nil?
+      = "Expires in: #{@paste.expiration_date}"
+    - else
+      | Expires in: Never
+  p.flex-initial Seen: xx times
+.whitespace-pre = @paste.body

@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_19_014140) do
+ActiveRecord::Schema.define(version: 2021_12_29_181947) do
 
   create_table "pastes", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "expiration_date", precision: 6
+    t.boolean "self_destruct"
   end
 
 end

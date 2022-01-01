@@ -5,7 +5,7 @@
       - @pastes.each do |p|
           li.h-full 
             .flex.gap-2
-              = link_to "Pegatina #{p.id}", p,  class: 'text-blue-600 hover:underline' 
+              = link_to "##{p.id}", p,  class: 'text-blue-600 hover:underline'
               span = "#{time_ago_in_words(p.created_at)} ago"
             div
               = p.body[0..10] + (p.body.size > 10 ? "..." : "")
