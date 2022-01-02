@@ -1,10 +1,11 @@
 = simple_form_for @paste, html: {class: "h-full" } do |f|
-  .flex.gap-2.mb-2
-    label.flex-initial.place-self-center Delete after
-    = f.select :expiration_range, [["Never", :never], ["10 Minutes", :tenminutes], ["1 Hour", :onehour],
-            ["1 Day", :oneday], ["1 Week", :oneweek], ["2 Weeks", :twoweeks], ["1 Month", :onemonth],
-            ["6 Months", :sixmonths], ["1 Year", :oneyear]], class: "flex-auto"
-    = f.error :expiration_range, class: "flex-auto text-red-500"
+  .flex
+    .flex.flex-col.gap-2.mb-2.flex-auto
+      label.flex-initial.place-self-center Delete after
+      = f.select :expiration_range, [["Never", :never], ["10 Minutes", :tenminutes], ["1 Hour", :onehour],
+              ["1 Day", :oneday], ["1 Week", :oneweek], ["2 Weeks", :twoweeks], ["1 Month", :onemonth],
+              ["6 Months", :sixmonths], ["1 Year", :oneyear]], class: "flex-auto"
+      = f.error :expiration_range, class: "flex-auto text-red-500"
   .flex.flex-col.mb-2 class="h-5/6"
     = f.error :body, class: "flex-auto text-red-500"
     = f.text_area :body, class: "flex-auto h-full"
