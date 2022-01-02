@@ -14,7 +14,7 @@ class Paste < ApplicationRecord
       when "never"
         self.expiration_date = nil
       when "tenminutes"
-        self.expiration_date = DateTime.now + 5.seconds
+        self.expiration_date = DateTime.now + 10.minutes
       when "onehour"
         self.expiration_date = DateTime.now + 1.hour
       when "oneday"
