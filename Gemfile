@@ -49,6 +49,8 @@ gem 'sorcery'
 gem "view_component"
 gem "slim-rails"
 gem 'simple_form'
+gem "sidekiq"
+
 
 
 # Use Sass to process CSS

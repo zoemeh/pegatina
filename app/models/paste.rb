@@ -5,13 +5,16 @@ class Paste < ApplicationRecord
                                                 "twoweeks", "onemonth", "sixmonths", "oneyear"],
                                                 message: "\"%{value}\" is not a valid expiration range"}
   before_save :set_self_destruct
+  after_create :queue_job
+
+  private
   def set_self_destruct
     unless (expiration_range.nil?)
       case expiration_range
       when "never"
         self.expiration_date = nil
       when "tenminutes"
-        self.expiration_date = DateTime.now + 10.minutes
+        self.expiration_date = DateTime.now + 5.seconds
       when "onehour"
         self.expiration_date = DateTime.now + 1.hour
       when "oneday"
@@ -27,6 +30,14 @@ class Paste < ApplicationRecord
       when "oneyear"
         self.expiration_date = DateTime.now + 1.year
       end
+    end
+  end
+
+  def queue_job
+    unless expiration_date.nil?
+      PastesCleanupJob.set(wait_until: expiration_date).perform_later()
+    else
+      raise Exception.new "Was nill"
     end
   end
 end
