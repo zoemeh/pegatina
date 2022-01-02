@@ -36,8 +36,6 @@ class Paste < ApplicationRecord
   def queue_job
     unless expiration_date.nil?
       PastesCleanupJob.set(wait_until: expiration_date).perform_later()
-    else
-      raise Exception.new "Was nill"
     end
   end
 end

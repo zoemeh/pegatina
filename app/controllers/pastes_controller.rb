@@ -17,6 +17,8 @@ class PastesController < ApplicationController
 
   # GET /pastes/1/edit
   def edit
+    render plain: "Forbidden", status: 403
+    return
   end
 
   # POST /pastes or /pastes.json
@@ -36,6 +38,8 @@ class PastesController < ApplicationController
 
   # PATCH/PUT /pastes/1 or /pastes/1.json
   def update
+    render plain: "Forbidden", status: 403
+    return
     respond_to do |format|
       if @paste.update(paste_params)
         format.html { redirect_to paste_url(@paste), notice: "Paste was successfully updated." }
@@ -49,8 +53,9 @@ class PastesController < ApplicationController
 
   # DELETE /pastes/1 or /pastes/1.json
   def destroy
+    render plain: "Forbidden", status: 403
+    return
     @paste.destroy
-
     respond_to do |format|
       format.html { redirect_to pastes_url, notice: "Paste was successfully destroyed." }
       format.json { head :no_content }

@@ -1,12 +1,12 @@
 = simple_form_for @paste, html: {class: "h-full" } do |f|
-    .flex.flex-col.mb-2 class="h-5/6"
-      = f.error :body, class: "flex-auto text-red-500"
-      = f.text_area :body, class: "flex-auto h-full"
-    .flex.gap-2
-      label.flex-initial.place-self-center Expiration
-      = f.select :expiration_range, [["Never", :never], ["10 Minutes", :tenminutes], ["1 Hour", :onehour],
-              ["1 Day", :oneday], ["1 Week", :oneweek], ["2 Weeks", :twoweeks],["1 Month", :onemonth],
-              ["6 Months", :sixmonths], ["1 Year", :oneyear]], class: "flex-auto"
-      = f.error :expiration_range, class: "flex-auto text-red-500"
-    .flex
-      = f.button :submit, class: "border-2 px-3 py-2 bg-gray-700 text-white flex-auto"
+  .flex.gap-2.mb-2
+    label.flex-initial.place-self-center Delete after
+    = f.select :expiration_range, [["Never", :never], ["10 Minutes", :tenminutes], ["1 Hour", :onehour],
+            ["1 Day", :oneday], ["1 Week", :oneweek], ["2 Weeks", :twoweeks], ["1 Month", :onemonth],
+            ["6 Months", :sixmonths], ["1 Year", :oneyear]], class: "flex-auto"
+    = f.error :expiration_range, class: "flex-auto text-red-500"
+  .flex.flex-col.mb-2 class="h-5/6"
+    = f.error :body, class: "flex-auto text-red-500"
+    = f.text_area :body, class: "flex-auto h-full"
+  .flex
+    = f.submit "Create", class: "border-2 px-3 py-2 bg-gray-700 text-white flex-auto"
